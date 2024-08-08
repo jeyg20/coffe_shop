@@ -1,6 +1,6 @@
 from django import forms
 
-from products.models import Products
+from products.models import Product
 
 
 class ProductForm(forms.Form):
@@ -11,7 +11,7 @@ class ProductForm(forms.Form):
     photo = forms.ImageField(label="Photo", required=False)
 
     def save(self):
-        Products.objects.create(
+        Product.objects.create(
             name=self.cleaned_data["name"],
             description=self.cleaned_data["description"],
             price=self.cleaned_data["price"],
