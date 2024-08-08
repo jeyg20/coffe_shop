@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block content %}
+  <h1>Products list</h1>
+  <ul>
+    {% for product  in products %}
+      <li>
+        {{ product.name }}
+        <p>{{ product.price }}</p>
+        {% if product.photo %}
+          <img src="{{ product.photo.url }}"
+               alt="{{ product.name }}"
+               style="max-width: 40%">
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock content %}
