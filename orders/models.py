@@ -13,6 +13,11 @@ class Order(models.Model):
     def __str__(self) -> str:
         return f"Order {self.id} by {self.user}"
 
+    def get_total(self):
+        return sum(
+            item.product.price * item.quantity for item in self.orderproduct_set.all()
+        )
+
 
 class OrderProduct(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)

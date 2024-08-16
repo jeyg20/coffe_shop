@@ -20,6 +20,10 @@
             {% empty %}
                 <div class="text-red-500">There are no items in your order</div>
             {% endfor %}
+            <div class="flex justify-end items-center py-2 border-b gap-4">
+                <p class="text-lg">Total:</p>
+                <p class="text-lg font-semibold">{{ total }}</p>
+            </div>
         </div>
     </div>
 {% endblock content %}
