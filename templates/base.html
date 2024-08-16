@@ -12,7 +12,7 @@
     <body class="bg-gray-50 font-serif leading-normal tracking-normal">
         <header class="w-screen bg-white">
             <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-                <a class="block text-teal-600" href="#">
+                <a class="block text-teal-600" href="{% url "list_product" %}">
                     <img src="/logos/favicon-32x32.png"
                          alt="cup of coffee"
                          width="32"
@@ -23,14 +23,15 @@
                     <nav aria-label="Global" class="hidden md:block">
                         <ul class="flex items-center gap-6 text-base">
                             <li>
-                                <a class="text-gray-700 transition hover:text-gray-700/75" href="#">About</a>
+                                <a class="text-gray-700 transition hover:text-gray-700/75"
+                                   href="{% url 'list_product' %}">Products</a>
                             </li>
                             <li>
                                 <a class="text-gray-700 transition hover:text-gray-700/75"
-                                   href="{% url 'login' %}">Products</a>
+                                   href="{% url "create_product" %}">Create Product</a>
                             </li>
                             <li>
-                                <a class="text-gray-700 transition hover:text-gray-700/75" href="#">Add Products</a>
+                                <a class="text-gray-700 transition hover:text-gray-700/75" href="#">About</a>
                             </li>
                         </ul>
                     </nav>
@@ -38,11 +39,7 @@
                         <a class="sm:flex sm:gap-4 items-center" action href="#">
                             {% if user.is_authenticated %}
                                 <span class="text-gray-700">{{ user.username }}</span>
-                                <img class="border"
-                                     src="/logos/robot-32x32.png"
-                                     width="32"
-                                     height="32"
-                                     alt="robot">
+                                <img src="/logos/robot-32x32.png" width="32" height="32" alt="robot">
                                 <form action="{% url 'logout' %}" method="post" class="flex gap-2">
                                     {% csrf_token %}
                                     <button type="submit"
@@ -50,14 +47,15 @@
                                         Logout
                                     </button>
                                 </form>
-                                <button class="block w-24 rounded-lg border border-yellow-900 bg-transparent px-4 py-2 text-base text-yellow-900 transition-colors hover:bg-yellow-900 focus:outline-none focus:ring active:bg-yellow-500 hover:text-white active:text-white">
+                                <a href="{% url 'my_order' %}"
+                                   class="block w-24 rounded-lg border border-yellow-900 bg-transparent px-4 py-2 text-base text-yellow-900 transition-colors hover:bg-yellow-900 focus:outline-none focus:ring active:bg-yellow-500 hover:text-white active:text-white">
                                     My order
-                                </button>
+                                </a>
                             {% else %}
                                 <a class="block w-24 text-center rounded-lg border border-yellow-900 bg-yellow-900 px-4 py-2 text-base text-white transition-colors hover:bg-transparent focus:outline-none focus:ring active:bg-yellow-500 hover:text-yellow-900 active:text-white"
                                    href="{% url 'login' %}">Login</a>
                                 <a class="block w-24 text-center rounded-lg border border-yellow-900 bg-transparent px-4 py-2 text-base text-yellow-900 transition-colors hover:bg-yellow-900 focus:outline-none focus:ring active:bg-yellow-500 hover:text-white active:text-white"
-                                   href="#">Register</a>
+                                   href="{% url 'register' %}">Register</a>
                             {% endif %}
                         </a>
                     </div>
