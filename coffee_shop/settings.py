@@ -57,7 +57,7 @@ INSTALLED_APPS = [
 ]
 
 TAILWIND_APP_NAME = "theme"
-TAILWIND_CSS_PATH = "theme/static/css/dist/styles.css"
+TAILWIND_CSS_PATH = "css/dist/styles.css"
 
 INTERNAL_IPS = [
     "127.0.0.1",
