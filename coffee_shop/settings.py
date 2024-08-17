@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 ]
 
 TAILWIND_APP_NAME = "theme"
+TAILWIND_CSS_PATH = "theme/static/css/dist/styles.css"
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -130,6 +131,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+NPM_BIN_PATH = "/home/jeison/.nvm/versions/node/v20.12.2/bin/npm"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
