@@ -29,10 +29,9 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = [
-    "172.31.9.29",
-    "coffee-shop-production.eba-hvpcejzc.us-east-2.elasticbeanstalk.com",
-]
+
+ALLOWED_HOSTS = ["*"]
+
 
 # Application definition
 
