@@ -167,3 +167,14 @@ cython_debug/
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+
+# Ignore collected static files
+/staticfiles/
+# or if you use a different directory
+/static/
+
+# Ignore Elastic Beanstalk configurations
+.elasticbeanstalk
+.elasticbeanstalk/*
+!/.elasticbeanstalk/config.yml
