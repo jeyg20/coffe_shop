@@ -10,7 +10,7 @@ class Product(models.Model):
         auto_now_add=True, verbose_name="creation_date_time"
     )
     photo = models.ImageField(
-        upload_to="logos", null=True, blank=True, verbose_name="photo"
+        upload_to="images/products", null=True, blank=True, verbose_name="photo"
     )
 
     def __str__(self) -> str:
