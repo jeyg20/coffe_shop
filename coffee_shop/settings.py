@@ -17,7 +17,7 @@ import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-env = environ.Env(DEBUG=(bool, True))
+env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
@@ -30,7 +30,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = [
-    "http://coffee-shop-production.eba-hvpcejzc.us-east-2.elasticbeanstalk.com",
+    "coffee-shop-production.eba-hvpcejzc.us-east-2.elasticbeanstalk.com",
     "127.0.0.1",
 ]
 
@@ -136,6 +136,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    "theme/static/",
 ]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
