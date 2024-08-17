@@ -139,7 +139,6 @@ NPM_BIN_PATH = "/home/jeison/.nvm/versions/node/v20.12.2/bin/npm"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "theme/static",
-    BASE_DIR / "theme/static_src",
 ]
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
