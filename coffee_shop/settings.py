@@ -32,6 +32,7 @@ DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = [
     "172.31.9.29",
+    "127.0.0.1",
     "coffee-shop-production.eba-hvpcejzc.us-east-2.elasticbeanstalk.com",
 ]
 
@@ -57,11 +58,11 @@ INSTALLED_APPS = [
 ]
 
 TAILWIND_APP_NAME = "theme"
-TAILWIND_CSS_PATH = "css/dist/styles.css"
 
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+TAILWIND_CSS_PATH = "css/dist/styles.css"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -136,13 +137,18 @@ NPM_BIN_PATH = "/home/jeison/.nvm/versions/node/v20.12.2/bin/npm"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    BASE_DIR / "theme/static",
-]
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    "theme/static",
+]
+
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
