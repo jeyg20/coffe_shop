@@ -1,5 +1,6 @@
 services:
   app:
+    image: coffee-shop:latest
     build:
       context: .
     restart: always
