@@ -17,7 +17,7 @@ import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-env = environ.Env(DEBUG=(bool, False))
+env = environ.Env(DEBUG=(bool, True))
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
@@ -33,6 +33,7 @@ DEBUG = env("DEBUG")
 ALLOWED_HOSTS = [
     "172.31.9.29",
     "127.0.0.1",
+    "localhost",
     "coffee-shop-production.eba-hvpcejzc.us-east-2.elasticbeanstalk.com",
 ]
 
@@ -62,7 +63,6 @@ TAILWIND_APP_NAME = "theme"
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
-TAILWIND_CSS_PATH = "css/dist/styles.css"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -142,13 +142,15 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    "theme/static",
+    BASE_DIR / "theme/static",
 ]
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
+
+TAILWIND_CSS_PATH = "css/dist/styles.css"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
