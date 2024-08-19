@@ -1,5 +1,5 @@
 server {
-    listen ${LISTEN_PORT};
+    listen 80;
 
     location /static {
         alias /app/staticfiles;
@@ -10,7 +10,7 @@ server {
     }
 
     location / {
-        proxy_pass      http://${APP_HOST}:${APP_PORT};
-        include         /etc/nginx/proxy_params;
+        proxy_pass http://localhost:8000;
+        include /etc/nginx/proxy_params;
     }
 }
