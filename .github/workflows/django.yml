@@ -31,5 +31,6 @@ jobs:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         DJANGO_DB_URL: ${{ secrets.DJANGO_DB_URL }}
         HOST: ${{ secrets.HOST }}
+        DEBUG: ${{ secrets.DEBUG }}
       run: 
         python manage.py test
