@@ -30,11 +30,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
-    "0.0.0.0",
-]
+ALLOWED_HOSTS = ["https://coffee-shop-4166.onrender.com"]
 
 
 # Application definition
