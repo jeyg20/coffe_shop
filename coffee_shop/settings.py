@@ -66,6 +66,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "coffee_shop.urls"
@@ -131,7 +132,11 @@ NPM_BIN_PATH = "/home/jeison/.nvm/versions/node/v20.12.2/bin/npm"
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+
+if not DEBUG:
+
+    STATIC_ROOT = BASE_DIR / "staticfiles"
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
