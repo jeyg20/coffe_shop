@@ -30,7 +30,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 
-ALLOWED_HOSTS = ["coffee-shop-4166.onrender.com"]
+ALLOWED_HOSTS = env.list("HOST")
 
 
 # Application definition
