@@ -17,7 +17,7 @@ import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-env = environ.Env(DEBUG=(bool, True))
+env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
@@ -30,7 +30,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 
-ALLOWED_HOSTS = ["https://coffee-shop-4166.onrender.com"]
+ALLOWED_HOSTS = ["coffee-shop-4166.onrender.com"]
 
 
 # Application definition
@@ -55,9 +55,7 @@ INSTALLED_APPS = [
 
 TAILWIND_APP_NAME = "theme"
 
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
+INTERNAL_IPS = []
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
