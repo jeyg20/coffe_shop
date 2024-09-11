@@ -31,10 +31,9 @@ DEBUG = env("DEBUG")
 
 
 ALLOWED_HOSTS = [
-    "172.31.9.29",
     "127.0.0.1",
     "localhost",
-    "coffee-shop-production.eba-hvpcejzc.us-east-2.elasticbeanstalk.com",
+    "0.0.0.0",
 ]
 
 
