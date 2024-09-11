@@ -92,12 +92,7 @@ WSGI_APPLICATION = "coffee_shop.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres_local",
-    }
-}
+DATABASES = {"default": env.db("DJANGO_DB_URL")}
 
 
 # Password validation
