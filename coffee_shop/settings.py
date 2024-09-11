@@ -133,10 +133,8 @@ NPM_BIN_PATH = "/home/jeison/.nvm/versions/node/v20.12.2/bin/npm"
 
 STATIC_URL = "/static/"
 
-if not DEBUG:
-
-    STATIC_ROOT = BASE_DIR / "staticfiles"
-    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
