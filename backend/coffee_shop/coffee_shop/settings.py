@@ -10,15 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-import os
 from pathlib import Path
 
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
+env = environ.Env(
+    DEBUG=(bool, False),
+)
+environ.Env.read_env(BASE_DIR / ".env")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -53,9 +54,6 @@ INSTALLED_APPS = [
     "orders",
 ]
 
-TAILWIND_APP_NAME = "theme"
-
-INTERNAL_IPS = []
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -74,7 +72,7 @@ ROOT_URLCONF = "coffee_shop.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "DIRS": [BASE_DIR / "backend/coffee_shop/theme/templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -131,30 +129,29 @@ NPM_BIN_PATH = "/home/jeison/.nvm/versions/node/v20.12.2/bin/npm"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = "/static/"
-
+STATIC_URL = "static/"
+STATICFILES_DIRS = [
+    BASE_DIR / "backend/coffee_shop/static",
+]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    BASE_DIR / "theme/static",
-]
 
-STATICFILES_FINDERS = [
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-]
-
-TAILWIND_CSS_PATH = "css/dist/styles.css"
-
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+TAILWIND_APP_NAME = "theme"
+# TAILWIND_CSS_PATH = "css/dist/styles.css"
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 
