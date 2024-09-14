@@ -34,4 +34,4 @@ jobs:
         HOST: ${{ secrets.HOST }}
         DEBUG: ${{ secrets.DEBUG }}
       run: 
-        python manage.py test
+        python backend/coffee_shop/manage.py test
