@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
-import dj_database_url
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -92,9 +91,8 @@ WSGI_APPLICATION = "coffee_shop.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": dj_database_url.config(default=env("DJANGO_DB_URL"), conn_max_age=600)
-}
+DATABASES = {"default": env.db("DJANGO_DB_URL")}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
