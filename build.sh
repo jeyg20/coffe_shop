@@ -2,6 +2,8 @@ set -o errexit
 
 pip install -r backend/requirements.txt
 
-python manage.py backend/coffee_shop/collectstatic --no-input
+cd backend/coffee_shop
 
-python manage.py backend/coffee_shop/migrate
+python manage.py collectstatic --no-input
+
+python manage.py migrate
