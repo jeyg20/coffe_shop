@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% load tailwind_filters %}
 {% block content %}
-    <section class="flex justify-center mt-10">
+    <section class="flex items-center justify-center h-svh -m-12 text-xl">
         <form action="{% url 'create_product' %}"
               method="post"
               enctype="multipart/form-data"
-              class="w-96 text-lg rounded-xl p-6 shadow-2xl">
+              class="flex flex-col gap-4 rounded-xl p-8 shadow-2xl">
             {% csrf_token %}
             {{ form|crispy }}
             <button type="submit"

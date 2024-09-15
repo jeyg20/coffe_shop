@@ -31,7 +31,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
 
-ALLOWED_HOSTS = env.list("HOST")
+ALLOWED_HOSTS = ["127.0.0.1"]  # env.list("HOST")
 
 
 # Application definition
@@ -124,12 +124,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-NPM_BIN_PATH = "/home/jeison/.nvm/versions/node/v20.12.2/bin/npm"
+NPM_BIN_PATH = r"/home/jeison/.nvm/versions/node/v20.12.2/bin/npm"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "backend/coffee_shop/static",
 ]
@@ -137,8 +137,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
-# MEDIA_URL = "/media/"
-# MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -147,7 +147,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 TAILWIND_APP_NAME = "theme"
-# TAILWIND_CSS_PATH = "css/dist/styles.css"
 
 INTERNAL_IPS = [
     "127.0.0.1",
