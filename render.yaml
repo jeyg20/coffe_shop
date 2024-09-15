@@ -1,0 +1,22 @@
+databases:
+  - name: coffee-shop-db
+    plan: free
+    databaseName: coffee_shop_db_a65h
+    user: coffee_shop_db_a65h_user
+
+services:
+  - type: web
+    plan: free
+    name: coffee_shop
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn --chdir backend/coffee_shop coffee_shop.asgi:application -k uvicorn.workers.UvicornWorker"    
+    envVars:
+      - key: DJANGO_DB_URL
+        fromDatabase:
+          name: coffee-shop-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
