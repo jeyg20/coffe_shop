@@ -134,6 +134,7 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "backend/coffee_shop/static",
     BASE_DIR / "backend/coffee_shop/theme/static",
+    BASE_DIR / "backend/coffee_shop/images",
 ]
 
 MEDIA_URL = "/media/"
